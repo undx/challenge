@@ -1,0 +1,318 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t
+#+OPTIONS: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
+#+OPTIONS: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t tasks:t
+#+OPTIONS: tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: [Challenge] Documentation
+#+DATE: <2016-08-24 Wed>
+#+AUTHOR: Emmanuel GALLOIS
+#+EMAIL: emmanuel.gallois@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.5)
+#+INFOJS_OPT: view:showall toc:t ltoc:nil mouse:underline buttons:0 path:./js/org-info.min.js
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/solarized-light.min.css" />
+
+
+I've been asked to do an exercise / challenge for a job position. This documentation is the way I realized it.
+
+#+INCLUDE: challenge.org
+
+
+
+* Specifications 
+** Data samples analysis 
+  First, let's make the CSV excerpts more readable and identify the schemas
+  for our application.
+  
+*** Input
+
+ Input data sample
+    
+ | department |       date | roomA | roomB | roomC | roomD | roomE | roomF | code          |
+ |------------+------------+-------+-------+-------+-------+-------+-------+---------------|
+ | HR3        | 2009-01-20 |    19 |     4 |     3 |    20 |    40 |     7 | HALO#sig#OPEC |
+ | HR3        | 2009-01-19 |       |     5 |     3 |    20 |    40 |     7 | HALO##EUR     |
+ | HR1        | 2009-01-20 |    19 |     4 |     3 |    20 |    40 |     7 |               |
+ | HR2        | 2009-01-20 |    19 |     4 |     3 |    20 |    40 |     7 | GEPUR##GBP    |
+ | HR3        | 2009-01-21 |    21 |    89 |    56 |    12 |    70 |    91 |               |
+
+  Schema 
+
+ | Column name | Type   | canBeNull? |
+ |-------------+--------+------------|
+ | =deparment= | string | false      |
+ | =date=      | string | false      |
+ | =roomA=     | int    | true       |
+ | =roomB=     | int    | true       |
+ | =roomC=     | int    | true       |
+ | =roomD=     | int    | true       |
+ | =roomE=     | int    | true       |
+ | =roomF=     | int    | true       |
+ | =code=      | string | true       |
+ |-------------+--------+------------|
+
+ Notes:
+ - =date= has the format of the calendar date (see [[https://en.wikipedia.org/wiki/ISO_8601][ISO_8601]]). Will be handled
+   as a string.
+ - =room<A..F>= columns seem to be a quantity, a count. Name it =count= in
+   the output schema (see details lower).
+ - =code= seems to represents the following structure (splitted by =#= char) :
+   - Reference or stock place... Let's name it =ref=.
+   - Optional information, not used in ouput files (so skip it !). We won't name this value...
+   - Seems to be a currency in [[https://fr.wikipedia.org/wiki/ISO_4217][ISO 4217]] format. Let's name it =cur=.
+  
+*** Expected outputs 
+
+   Output data samples
+
+    File name: =HR3-RoomA.csv=
+      
+   | HR3 | 2009-01-20 | 19 | HALO | OPEC |
+   | HR3 | 2009-01-21 | 21 |      |      |
+
+   File name: =HR3-RoomB.csv=
+    
+   | HR3 | 2009-01-20 |  4 | HALO | OPEC |
+   | HR3 | 2009-01-19 |  5 | HALO | EUR  |
+   | HR3 | 2009-01-21 | 89 |      |      |
+   
+   File name: =HR3-RoomC.csv=
+     
+   | HR3 | 2009-01-20 |  3 | HALO | OPEC |
+   | HR3 | 2009-01-19 |  3 | HALO | EUR  |
+   | HR3 | 2009-01-21 | 56 |      |      |
+
+   Schema
+    
+ | column      | type   | canBeNull? |
+ |-------------+--------+------------|
+ | =deparment= | string | false      |
+ | =date=      | string | false      |
+ | =count=     | int    | false      |
+ | =ref=       | string | true       |
+ | =cur=       | string | true       |
+
+** Rules
+
+   According to the challenge definition and the provided data samples
+   analysis, we will define the following rules.
+   
+*** Logic
+
+    Perimeter: 
+    - We have 10 departments maximum : HR1 to HR10.
+    - We have 6 fixed rooms: roomA, roomB, roomC, roomD, roomE and roomF.   
+      
+   For each line of input file,
+   - if the department match the filter or there's no department filter
+    - we have to explode each room (/room<A..F>/) according to the room filter if defined
+     - we will skip /empty/ =count= (room column value).
+      - into one line which has the format defined [[outputformat][below]].
+
+   In summary, we're making a pivot for room's columns (columns to rows).     
+   
+   Thus, if the department is not filtered, if all rooms have a value and are not filtered, one
+   line of input source will generate 6 lines of output (one per room).\\
+   Each of theses lines, will be written in a distinct file name
+   =<department>-Room<room>.csv= in append mode.\\
+   The =count= value will be the room value. We will repeat the =department=, add the
+   =date= and eventually add the =ref= and =cur= fields if they're not null.
+    
+   I decided that, if the input file structure is malformed(doesn't match schema), the process rejects the
+   file and warns the user.
+   
+*** Output filename and content <<outputformat>>
+   - The output filename should be following this format =<department>-<room.capitalize>.csv=.
+   - The format will be CSV with no headers, each field will be delimited by
+     the =;= char and will follow the schema:
+
+ | column      | type   | canBeNull? |
+ |-------------+--------+------------|
+ | =deparment= | string | false      |
+ | =date=      | string | false      |
+ | =count=     | int    | false      |
+ | =ref=       | string | true       |
+ | =cur=       | string | true       |
+
+*** Interface
+    We have to manage some parameters according to the challenge definition:
+    - We can filter the source on /One/ department. If no department is provided, we take all departments.
+    - We can select a list rooms for extraction. If no rooms is provided, take all rooms.
+    - We can mix the previous statements : Department and Rooms, Department
+      only, Rooms only or no filter at all.
+
+*** Volumetry    
+   In the challenge definition, we can read : 
+  #+BEGIN_QUOTE
+  /Given this csv file excerpt (the file could either be *very large* or *small*)/
+  #+END_QUOTE
+  We cannot know the size of the input source. It can contain 10 lines to 1 million lines or even more...\\
+  To take that into account, I decided to make some tests on data samples of a small to huge volumetry.
+  See [[datasets][Creating sample datasets]] to see the size a data samples created.
+      
+* Challenge answer and implementation
+
+  I follow the [[https://en.wikipedia.org/wiki/KISS_principle][KISS]] principle. So, I'll try to answer to this challenge in a
+  simple but efficient way.
+
+  The code architecture is quite simple, we will have
+  - an /Interface/ for dialoging with the user requests and giving orders to the /Worker/.
+  - a /Worker/ who has the job of processing the file provided.
+  
+  We will work on a CLI(Command-Line /Interface/) Tool written in Scala with its ecosystem.\\
+  The CLI tool will accept parameters: 
+   - A mandatory one : the filename to process.
+   - two optionals : 
+     - a =departement=, we will name the command-line option =-d= (=--department=).\\
+       Example : =-d HR3=   
+     - a list of =room identifiers= which belongs to the following fixed values : roomA, roomB, ... till roomF.\\
+        We will shorten the parameter value to 'A' to 'F'. We will call the
+       name the command-line option =-r= (=--rooms=).\\
+       Example : =-r C= for roomC and =-r A,D,E= for roomA, roomD and roomE.
+  
+** Dependencies
+
+   We won't reinvent the wheel and use the some libraries for some specific features...
+
+  The dependencies are managed automatically by sbt and are declared in [[file:../build.sbt][build.sbt]].
+   
+  - Command-line options parsing :: [[https://github.com/scopt/scopt][scopt]] (/simple scala command line options parsing/).
+
+
+  - CSV reading and writing :: 
+    CSV operations like reading and writing are in fact not very
+    complicated... but can usualy be an error prone task. I chose
+    [[https://nrinaudo.github.io/kantan.csv/][Kantan.csv]] (/kantan.csv is a library for CSV parsing and serialisation written in the Scala programming language/) which has a pretty way of
+    handling CSV files and is quite fast (see [[https://nrinaudo.github.io/kantan.csv/tut/benchmarks.html][benchmarks]]).
+
+    
+  - Testing framework ::
+    For making the application's tests, I chose [[http://www.scalatest.org/][ScalaTest]] which seems to be
+       the reference on the subject for Scala.
+
+
+
+** Project
+
+*** Tests   
+    As I followed the [[https://en.wikipedia.org/wiki/Test-driven_development][TDD]], I first wrote tests on my main components :
+    - /CLI/ tests are in [[file:../src/test/scala/net/undx/challenge/CLITest.scala][CLITest.scala]].
+    - /Worker/ tests are in [[file:../src/test/scala/net/undx/challenge/WorkerTest.scala][WorkerTest.scala]].
+
+    To run the tests :
+    #+BEGIN_SRC sh
+    $ sbt test  
+    #+END_SRC
+
+    For continuous testing in sbt (compile and relaunch tests on each
+    modification) during the implementation development :
+    #+BEGIN_EXAMPLE
+    > ~test
+    #+END_EXAMPLE
+    
+*** Code
+
+    The CLI implementation is quite simple. You can check the code in [[file:../src/main/scala/net/undx/challenge/CLI.scala][CLI.scala]].
+
+    The Worker needed more thinking and to make some choices. As, the size of
+    input source couldn't be known, we can face to very very large datasets.
+    Some implementations could lead to memory problems...
+    The idea is, to avoid memory problems, to build a continuous process fed by an
+    iterator (reading a row at the time) which processes the row, creates the
+    output structures and dumps them to the relevant files.
+    
+    You can check the Worker implementation in [[file:../src/main/scala/net/undx/challenge/Worker.scala][Worker.scala]].
+
+*** Documentation
+    The code is commentated, to build the scaladoc run :
+    #+BEGIN_SRC sh
+    $ sbt doc
+    #+END_SRC
+    or in sbt:
+    #+BEGIN_EXAMPLE
+    doc
+    #+END_EXAMPLE
+    Then, open =./target/scala-2.11/api/index.html= to browse the refreshed
+    documentation.
+    
+    You can also consult it from [[file:./api/index.html][here]].
+*** How to run project
+
+    See the [[file:README.org][README]] file for running the application.
+    
+* Creating sample datasets <<datasets>>
+
+  I decided to create the following datasets from randomly generated data (see [[file:../project/Build.scala][Build.scala]]) :
+  - =tiny.csv= holds 100 rows.
+  - =small.csv= holds 1000 rows.
+  - =medium.csv= holds 100,000 rows.
+  - =large.csv= holds 1,000,000 rows.
+  - =huge.csv= holds 10,000,000 rows.
+  These data sample can be generated by calling the command =generateDatasets= with =sbt=.
+  : sbt generateDatasets
+
+  This will create the data samples in a directory named =data= in the root folder.
+
+  After that, you can use them to play with the application like below: 
+
+  : sbt run -f data/huge.csv -o /Users/undx/tmp/challenge 
+
+  (see [[file:README.org]] for usage)
+
+* Benchmarks on datasets
+
+  These benchmarks were made on a Mac Mini Late 2012 with an
+  Intel Core i5 2.5 GHz and 8GB memory running OS X 10.11.6. (Oracle Java JDK v8).
+
+| dataset |      #rows | Input size | integrity check | file processed | Output Generated |
+|---------+------------+------------+-----------------+----------------+------------------|
+|         |        <r> |        <r> |             <r> |            <r> |              <r> |
+| tiny    |        100 |       4,0K |           80 ms |         169 ms |             240K |
+| small   |      1,000 |        40K |          111 ms |         338 ms |             712K |
+| medium  |    100,000 |       3,9M |          377 ms |        3391 ms |              41M |
+| large   |  1,000,000 |        39M |         2254 ms |       23570 ms |             272M |
+| huge    | 10,000,000 |       389M |        16777 ms |      219120 ms |             1.3G |
+
+These results were produced with java : 
+#+BEGIN_SRC sh
+$ java  -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/tiny.csv -o /Users/undx/tmp/challenge/tiny
+Structure integrity check performed in 80 ms.
+File processed in 169 ms.
+$ java  -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/small.csv -o /Users/undx/tmp/challenge/small
+Structure integrity check performed in 111 ms.
+File processed in 338 ms.
+$ java  -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/medium.csv -o /Users/undx/tmp/challenge/medium
+Structure integrity check performed in 377 ms.
+File processed in 3391 ms.
+$ java  -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/large.csv -o /Users/undx/tmp/challenge/large
+Structure integrity check performed in 2254 ms.
+File processed in 23570 ms.
+$ java  -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/huge.csv -o /Users/undx/tmp/challenge/huge
+Structure integrity check performed in 16777 ms.
+File processed in 219120 ms.
+#+END_SRC
+More efficiently in shell (I used Zsh) : 
+#+BEGIN_SRC sh
+for j ("tiny" "small" "medium" "large" "huge"); do 
+  echo $j; 
+  java -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/${j}.csv -o /Users/undx/tmp/challenge/$j; 
+done
+#+END_SRC
+
+
+In sbt, for testing purpose : 
+#+BEGIN_EXAMPLE
+run -f data/tiny.csv   -o /Users/undx/tmp/challenge/tiny/
+...
+#+END_EXAMPLE
+    
+* Final words
+  
+  This was my first steps in Scala programming and I find this language very
+  interesting and motivating. Sometimes the syntax is a little bit odd but you
+  can do powerful things. I tried to follow the conventions and languages
+  idioms, but /It's a long way to the top/...
+
+    
+

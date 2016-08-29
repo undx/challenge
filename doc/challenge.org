@@ -1,0 +1,65 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t
+#+OPTIONS: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
+#+OPTIONS: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t tasks:t
+#+OPTIONS: tex:t timestamp:t title:t toc:nil todo:t |:t
+#+DATE: <2016-08-24 Wed>
+#+AUTHOR: Emmanuel GALLOIS
+#+EMAIL: emmanuel.gallois@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.5)
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:0 path:./js/org-info.min.js
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/solarized-light.min.css" />
+
+* The /Challenge/
+
+  Given this csv file excerpt (the file could either be very large or small):
+
+  #+BEGIN_EXAMPLE
+  department;date;roomA;roomB;roomC;roomD;roomE;roomF;code
+  HR3;2009-01-20;19;4;3;20;40;7;HALO#sig#OPEC
+  HR3;2009-01-19;;5;3;20;40;7;HALO##EUR
+  HR1;2009-01-20;19;4;3;20;40;7;
+  HR2;2009-01-20;19;4;3;20;40;7;GEPUR##GBP
+  HR3;2009-01-21;21;89;56;12;70;91;
+  #+END_EXAMPLE
+  
+Write a list of csv files by department (assume no more than 10 departments)
+and room. For example, for department HR3 we would output (no need for
+header):
+
+File name: =HR3-RoomA.csv=
+
+Contents:
+#+BEGIN_EXAMPLE
+HR3;2009-01-20;19;HALO;OPEC
+HR3;2009-01-21;21;;
+#+END_EXAMPLE
+
+File name: =HR3-RoomB.csv=
+
+Contents:
+#+BEGIN_EXAMPLE
+HR3;2009-01-20;4;HALO;OPEC
+HR3;2009-01-19;5;HALO;EUR
+HR3;2009-01-21;89;
+#+END_EXAMPLE
+
+File name: =HR3-RoomC.csv=
+
+Contents:
+#+BEGIN_EXAMPLE
+HR3;2009-01-20;3;HALO;OPEC
+HR3;2009-01-19;3;HALO;EUR
+HR3;2009-01-21;56;;
+#+END_EXAMPLE
+
+etc.
+
+Take into account that sometimes when the script is run, only some data needs
+to be extracted (eg. only HR1, and/or only roomA and roomB). Either one or all
+departments will be processed.
+
+To the best of your ability follow development best practices (docs, tests, etc).
+   

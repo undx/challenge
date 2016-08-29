@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-08-29 lun. 15:07 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>[Challenge] Documentation</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Emmanuel GALLOIS Emmanuel GALLOIS" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./css/solarized-light.min.css" />
+<link rel="stylesheet" type="text/css" href="./css/solarized-light.min.css" />
+
+            <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+            <style type='text/css'>
+               body { font-family: 'Source Sans Pro', sans-serif !important;
+                  
+               }
+               pre, code { font-family: 'Source Code Pro', monospace !important; }
+               .tag, span.tag > span  { font-family: 'Source Code Pro', monospace !important; }
+            </style>
+<script type="text/javascript" src="./js/org-info.min.js">
+/**
+ *
+ * @source: ./js/org-info.min.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in ./js/org-info.min.js.
+ *
+ * Copyright (C) 2012-2013 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in ./js/org-info.min.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "0");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "showall");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">[Challenge] Documentation</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">The <i>Challenge</i></a></li>
+<li><a href="#orgheadline10">Specifications</a>
+<ul>
+<li><a href="#orgheadline2">Data samples analysis</a>
+<ul>
+<li><a href="#orgheadline3">Input</a></li>
+<li><a href="#orgheadline4">Expected outputs</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline5">Rules</a>
+<ul>
+<li><a href="#orgheadline6">Logic</a></li>
+<li><a href="#orgheadline7">Output filename and content </a></li>
+<li><a href="#orgheadline8">Interface</a></li>
+<li><a href="#orgheadline9">Volumetry</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline11">Challenge answer and implementation</a>
+<ul>
+<li><a href="#orgheadline12">Dependencies</a></li>
+<li><a href="#orgheadline17">Project</a>
+<ul>
+<li><a href="#orgheadline13">Tests</a></li>
+<li><a href="#orgheadline14">Code</a></li>
+<li><a href="#orgheadline15">Documentation</a></li>
+<li><a href="#orgheadline16">How to run project</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline18">Creating sample datasets </a></li>
+<li><a href="#orgheadline19">Benchmarks on datasets</a></li>
+<li><a href="#orgheadline20">Final words</a></li>
+</ul>
+</div>
+</div>
+<p>
+I've been asked to do an exercise / challenge for a job position. This documentation is the way I realized it.
+</p>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">The <i>Challenge</i></h2>
+<div class="outline-text-2" id="text-orgheadline1">
+<p>
+Given this csv file excerpt (the file could either be very large or small):
+</p>
+
+<pre class="example">
+department;date;roomA;roomB;roomC;roomD;roomE;roomF;code
+HR3;2009-01-20;19;4;3;20;40;7;HALO#sig#OPEC
+HR3;2009-01-19;;5;3;20;40;7;HALO##EUR
+HR1;2009-01-20;19;4;3;20;40;7;
+HR2;2009-01-20;19;4;3;20;40;7;GEPUR##GBP
+HR3;2009-01-21;21;89;56;12;70;91;
+</pre>
+
+<p>
+Write a list of csv files by department (assume no more than 10 departments)
+and room. For example, for department HR3 we would output (no need for
+header):
+</p>
+
+<p>
+File name: <code>HR3-RoomA.csv</code>
+</p>
+
+<p>
+Contents:
+</p>
+<pre class="example">
+HR3;2009-01-20;19;HALO;OPEC
+HR3;2009-01-21;21;;
+</pre>
+
+<p>
+File name: <code>HR3-RoomB.csv</code>
+</p>
+
+<p>
+Contents:
+</p>
+<pre class="example">
+HR3;2009-01-20;4;HALO;OPEC
+HR3;2009-01-19;5;HALO;EUR
+HR3;2009-01-21;89;
+</pre>
+
+<p>
+File name: <code>HR3-RoomC.csv</code>
+</p>
+
+<p>
+Contents:
+</p>
+<pre class="example">
+HR3;2009-01-20;3;HALO;OPEC
+HR3;2009-01-19;3;HALO;EUR
+HR3;2009-01-21;56;;
+</pre>
+
+<p>
+etc.
+</p>
+
+<p>
+Take into account that sometimes when the script is run, only some data needs
+to be extracted (eg. only HR1, and/or only roomA and roomB). Either one or all
+departments will be processed.
+</p>
+
+<p>
+To the best of your ability follow development best practices (docs, tests, etc).
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10">Specifications</h2>
+<div class="outline-text-2" id="text-orgheadline10">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2">Data samples analysis</h3>
+<div class="outline-text-3" id="text-orgheadline2">
+<p>
+First, let's make the CSV excerpts more readable and identify the schemas
+for our application.
+</p>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-4">
+<h4 id="orgheadline3">Input</h4>
+<div class="outline-text-4" id="text-orgheadline3">
+<p>
+Input data sample
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">department</th>
+<th scope="col" class="org-right">date</th>
+<th scope="col" class="org-right">roomA</th>
+<th scope="col" class="org-right">roomB</th>
+<th scope="col" class="org-right">roomC</th>
+<th scope="col" class="org-right">roomD</th>
+<th scope="col" class="org-right">roomE</th>
+<th scope="col" class="org-right">roomF</th>
+<th scope="col" class="org-left">code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-20</td>
+<td class="org-right">19</td>
+<td class="org-right">4</td>
+<td class="org-right">3</td>
+<td class="org-right">20</td>
+<td class="org-right">40</td>
+<td class="org-right">7</td>
+<td class="org-left">HALO#sig#OPEC</td>
+</tr>
+
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-19</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">5</td>
+<td class="org-right">3</td>
+<td class="org-right">20</td>
+<td class="org-right">40</td>
+<td class="org-right">7</td>
+<td class="org-left">HALO##EUR</td>
+</tr>
+
+<tr>
+<td class="org-left">HR1</td>
+<td class="org-right">2009-01-20</td>
+<td class="org-right">19</td>
+<td class="org-right">4</td>
+<td class="org-right">3</td>
+<td class="org-right">20</td>
+<td class="org-right">40</td>
+<td class="org-right">7</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">HR2</td>
+<td class="org-right">2009-01-20</td>
+<td class="org-right">19</td>
+<td class="org-right">4</td>
+<td class="org-right">3</td>
+<td class="org-right">20</td>
+<td class="org-right">40</td>
+<td class="org-right">7</td>
+<td class="org-left">GEPUR##GBP</td>
+</tr>
+
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-21</td>
+<td class="org-right">21</td>
+<td class="org-right">89</td>
+<td class="org-right">56</td>
+<td class="org-right">12</td>
+<td class="org-right">70</td>
+<td class="org-right">91</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Schema 
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Column name</th>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">canBeNull?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>deparment</code></td>
+<td class="org-left">string</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>date</code></td>
+<td class="org-left">string</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>roomA</code></td>
+<td class="org-left">int</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>roomB</code></td>
+<td class="org-left">int</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>roomC</code></td>
+<td class="org-left">int</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>roomD</code></td>
+<td class="org-left">int</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>roomE</code></td>
+<td class="org-left">int</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>roomF</code></td>
+<td class="org-left">int</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>code</code></td>
+<td class="org-left">string</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Notes:
+</p>
+<ul class="org-ul">
+<li><code>date</code> has the format of the calendar date (see <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO_8601</a>). Will be handled
+as a string.</li>
+<li><code>room&lt;A..F&gt;</code> columns seem to be a quantity, a count. Name it <code>count</code> in
+the output schema (see details lower).</li>
+<li><code>code</code> seems to represents the following structure (splitted by <code>#</code> char) :
+<ul class="org-ul">
+<li>Reference or stock place&#x2026; Let's name it <code>ref</code>.</li>
+<li>Optional information, not used in ouput files (so skip it !). We won't name this value&#x2026;</li>
+<li>Seems to be a currency in <a href="https://fr.wikipedia.org/wiki/ISO_4217">ISO 4217</a> format. Let's name it <code>cur</code>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4">Expected outputs</h4>
+<div class="outline-text-4" id="text-orgheadline4">
+<p>
+Output data samples
+</p>
+
+<p>
+File name: <code>HR3-RoomA.csv</code>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-20</td>
+<td class="org-right">19</td>
+<td class="org-left">HALO</td>
+<td class="org-left">OPEC</td>
+</tr>
+
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-21</td>
+<td class="org-right">21</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+File name: <code>HR3-RoomB.csv</code>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-20</td>
+<td class="org-right">4</td>
+<td class="org-left">HALO</td>
+<td class="org-left">OPEC</td>
+</tr>
+
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-19</td>
+<td class="org-right">5</td>
+<td class="org-left">HALO</td>
+<td class="org-left">EUR</td>
+</tr>
+
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-21</td>
+<td class="org-right">89</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+File name: <code>HR3-RoomC.csv</code>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-20</td>
+<td class="org-right">3</td>
+<td class="org-left">HALO</td>
+<td class="org-left">OPEC</td>
+</tr>
+
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-19</td>
+<td class="org-right">3</td>
+<td class="org-left">HALO</td>
+<td class="org-left">EUR</td>
+</tr>
+
+<tr>
+<td class="org-left">HR3</td>
+<td class="org-right">2009-01-21</td>
+<td class="org-right">56</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Schema
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">column</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">canBeNull?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>deparment</code></td>
+<td class="org-left">string</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>date</code></td>
+<td class="org-left">string</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>count</code></td>
+<td class="org-left">int</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ref</code></td>
+<td class="org-left">string</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>cur</code></td>
+<td class="org-left">string</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5">Rules</h3>
+<div class="outline-text-3" id="text-orgheadline5">
+<p>
+According to the challenge definition and the provided data samples
+analysis, we will define the following rules.
+</p>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6">Logic</h4>
+<div class="outline-text-4" id="text-orgheadline6">
+<p>
+Perimeter: 
+</p>
+<ul class="org-ul">
+<li>We have 10 departments maximum : HR1 to HR10.</li>
+<li>We have 6 fixed rooms: roomA, roomB, roomC, roomD, roomE and roomF.</li>
+</ul>
+
+<p>
+For each line of input file,
+</p>
+<ul class="org-ul">
+<li>if the department match the filter or there's no department filter
+<ul class="org-ul">
+<li>we have to explode each room (<i>room&lt;A..F&gt;</i>) according to the room filter if defined
+<ul class="org-ul">
+<li>we will skip <i>empty</i> <code>count</code> (room column value).
+<ul class="org-ul">
+<li>into one line which has the format defined <a href="#orgtarget1">below</a>.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>
+In summary, we're making a pivot for room's columns (columns to rows).     
+</p>
+
+<p>
+Thus, if the department is not filtered, if all rooms have a value and are not filtered, one
+line of input source will generate 6 lines of output (one per room).<br  />
+Each of theses lines, will be written in a distinct file name
+<code>&lt;department&gt;-Room&lt;room&gt;.csv</code> in append mode.<br  />
+The <code>count</code> value will be the room value. We will repeat the <code>department</code>, add the
+<code>date</code> and eventually add the <code>ref</code> and <code>cur</code> fields if they're not null.
+</p>
+
+<p>
+I decided that, if the input file structure is malformed(doesn't match schema), the process rejects the
+file and warns the user.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7">Output filename and content <a id="orgtarget1"></a></h4>
+<div class="outline-text-4" id="text-orgheadline7">
+<ul class="org-ul">
+<li>The output filename should be following this format <code>&lt;department&gt;-&lt;room.capitalize&gt;.csv</code>.</li>
+<li>The format will be CSV with no headers, each field will be delimited by
+the <code>;</code> char and will follow the schema:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">column</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">canBeNull?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>deparment</code></td>
+<td class="org-left">string</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>date</code></td>
+<td class="org-left">string</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>count</code></td>
+<td class="org-left">int</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ref</code></td>
+<td class="org-left">string</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>cur</code></td>
+<td class="org-left">string</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8">Interface</h4>
+<div class="outline-text-4" id="text-orgheadline8">
+<p>
+We have to manage some parameters according to the challenge definition:
+</p>
+<ul class="org-ul">
+<li>We can filter the source on <i>One</i> department. If no department is provided, we take all departments.</li>
+<li>We can select a list rooms for extraction. If no rooms is provided, take all rooms.</li>
+<li>We can mix the previous statements : Department and Rooms, Department
+only, Rooms only or no filter at all.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9">Volumetry</h4>
+<div class="outline-text-4" id="text-orgheadline9">
+<p>
+In the challenge definition, we can read : 
+</p>
+<blockquote>
+<p>
+<i>Given this csv file excerpt (the file could either be <b>very large</b> or <b>small</b>)</i>
+</p>
+</blockquote>
+<p>
+We cannot know the size of the input source. It can contain 10 lines to 1 million lines or even more&#x2026;<br  />
+To take that into account, I decided to make some tests on data samples of a small to huge volumetry.
+See <a href="#orgtarget2">Creating sample datasets</a> to see the size a data samples created.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11">Challenge answer and implementation</h2>
+<div class="outline-text-2" id="text-orgheadline11">
+<p>
+I follow the <a href="https://en.wikipedia.org/wiki/KISS_principle">KISS</a> principle. So, I'll try to answer to this challenge in a
+simple but efficient way.
+</p>
+
+<p>
+The code architecture is quite simple, we will have
+</p>
+<ul class="org-ul">
+<li>an <i>Interface</i> for dialoging with the user requests and giving orders to the <i>Worker</i>.</li>
+<li>a <i>Worker</i> who has the job of processing the file provided.</li>
+</ul>
+
+<p>
+We will work on a CLI(Command-Line <i>Interface</i>) Tool written in Scala with its ecosystem.<br  />
+The CLI tool will accept parameters: 
+</p>
+<ul class="org-ul">
+<li>A mandatory one : the filename to process.</li>
+<li>two optionals : 
+<ul class="org-ul">
+<li>a <code>departement</code>, we will name the command-line option <code>-d</code> (<code>--department</code>).<br  />
+Example : <code>-d HR3</code></li>
+<li>a list of <code>room identifiers</code> which belongs to the following fixed values : roomA, roomB, &#x2026; till roomF.<br  />
+ We will shorten the parameter value to 'A' to 'F'. We will call the
+name the command-line option <code>-r</code> (<code>--rooms</code>).<br  />
+Example : <code>-r C</code> for roomC and <code>-r A,D,E</code> for roomA, roomD and roomE.</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12">Dependencies</h3>
+<div class="outline-text-3" id="text-orgheadline12">
+<p>
+We won't reinvent the wheel and use the some libraries for some specific features&#x2026;
+</p>
+
+<p>
+The dependencies are managed automatically by sbt and are declared in <a href="../build.sbt">build.sbt</a>.
+</p>
+
+<dl class="org-dl">
+<dt>Command-line options parsing</dt><dd><a href="https://github.com/scopt/scopt">scopt</a> (<i>simple scala command line options parsing</i>).</dd>
+</dl>
+
+
+<dl class="org-dl">
+<dt>CSV reading and writing</dt><dd>CSV operations like reading and writing are in fact not very
+complicated&#x2026; but can usualy be an error prone task. I chose
+<a href="https://nrinaudo.github.io/kantan.csv/">Kantan.csv</a> (<i>kantan.csv is a library for CSV parsing and serialisation written in the Scala programming language</i>) which has a pretty way of
+handling CSV files and is quite fast (see <a href="https://nrinaudo.github.io/kantan.csv/tut/benchmarks.html">benchmarks</a>).</dd>
+</dl>
+
+
+<dl class="org-dl">
+<dt>Testing framework</dt><dd>For making the application's tests, I chose <a href="http://www.scalatest.org/">ScalaTest</a> which seems to be
+the reference on the subject for Scala.</dd>
+</dl>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17">Project</h3>
+<div class="outline-text-3" id="text-orgheadline17">
+</div><div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13">Tests</h4>
+<div class="outline-text-4" id="text-orgheadline13">
+<p>
+As I followed the <a href="https://en.wikipedia.org/wiki/Test-driven_development">TDD</a>, I first wrote tests on my main components :
+</p>
+<ul class="org-ul">
+<li><i>CLI</i> tests are in <a href="../src/test/scala/net/undx/challenge/CLITest.scala">CLITest.scala</a>.</li>
+<li><i>Worker</i> tests are in <a href="../src/test/scala/net/undx/challenge/WorkerTest.scala">WorkerTest.scala</a>.</li>
+</ul>
+
+<p>
+To run the tests :
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">$ sbt test
+</pre>
+</div>
+
+<p>
+For continuous testing in sbt (compile and relaunch tests on each
+modification) during the implementation development :
+</p>
+<pre class="example">
+&gt; ~test
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14">Code</h4>
+<div class="outline-text-4" id="text-orgheadline14">
+<p>
+The CLI implementation is quite simple. You can check the code in <a href="../src/main/scala/net/undx/challenge/CLI.scala">CLI.scala</a>.
+</p>
+
+<p>
+The Worker needed more thinking and to make some choices. As, the size of
+input source couldn't be known, we can face to very very large datasets.
+Some implementations could lead to memory problems&#x2026;
+The idea is, to avoid memory problems, to build a continuous process fed by an
+iterator (reading a row at the time) which processes the row, creates the
+output structures and dumps them to the relevant files.
+</p>
+
+<p>
+You can check the Worker implementation in <a href="../src/main/scala/net/undx/challenge/Worker.scala">Worker.scala</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-4">
+<h4 id="orgheadline15">Documentation</h4>
+<div class="outline-text-4" id="text-orgheadline15">
+<p>
+The code is commentated, to build the scaladoc run :
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">$ sbt doc
+</pre>
+</div>
+<p>
+or in sbt:
+</p>
+<pre class="example">
+doc
+</pre>
+<p>
+Then, open <code>./target/scala-2.11/api/index.html</code> to browse the refreshed
+documentation.
+</p>
+
+<p>
+You can also consult it from <a href="./api/index.html">here</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16">How to run project</h4>
+<div class="outline-text-4" id="text-orgheadline16">
+<p>
+See the <a href="README.html">README</a> file for running the application.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18">Creating sample datasets <a id="orgtarget2"></a></h2>
+<div class="outline-text-2" id="text-orgheadline18">
+<p>
+I decided to create the following datasets from randomly generated data (see <a href="../project/Build.scala">Build.scala</a>) :
+</p>
+<ul class="org-ul">
+<li><code>tiny.csv</code> holds 100 rows.</li>
+<li><code>small.csv</code> holds 1000 rows.</li>
+<li><code>medium.csv</code> holds 100,000 rows.</li>
+<li><code>large.csv</code> holds 1,000,000 rows.</li>
+<li><code>huge.csv</code> holds 10,000,000 rows.</li>
+</ul>
+<p>
+These data sample can be generated by calling the command <code>generateDatasets</code> with <code>sbt</code>.
+</p>
+<pre class="example">
+sbt generateDatasets
+</pre>
+
+<p>
+This will create the data samples in a directory named <code>data</code> in the root folder.
+</p>
+
+<p>
+After that, you can use them to play with the application like below: 
+</p>
+
+<pre class="example">
+sbt run -f data/huge.csv -o /Users/undx/tmp/challenge 
+</pre>
+
+<p>
+(see <a href="README.html">README.html</a> for usage)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19">Benchmarks on datasets</h2>
+<div class="outline-text-2" id="text-orgheadline19">
+<p>
+These benchmarks were made on a Mac Mini Late 2012 with an
+Intel Core i5 2.5 GHz and 8GB memory running OS X 10.11.6. (Oracle Java JDK v8).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">dataset</th>
+<th scope="col" class="org-right">#rows</th>
+<th scope="col" class="org-right">Input size</th>
+<th scope="col" class="org-right">integrity check</th>
+<th scope="col" class="org-right">file processed</th>
+<th scope="col" class="org-right">Output Generated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">tiny</td>
+<td class="org-right">100</td>
+<td class="org-right">4,0K</td>
+<td class="org-right">80 ms</td>
+<td class="org-right">169 ms</td>
+<td class="org-right">240K</td>
+</tr>
+
+<tr>
+<td class="org-left">small</td>
+<td class="org-right">1,000</td>
+<td class="org-right">40K</td>
+<td class="org-right">111 ms</td>
+<td class="org-right">338 ms</td>
+<td class="org-right">712K</td>
+</tr>
+
+<tr>
+<td class="org-left">medium</td>
+<td class="org-right">100,000</td>
+<td class="org-right">3,9M</td>
+<td class="org-right">377 ms</td>
+<td class="org-right">3391 ms</td>
+<td class="org-right">41M</td>
+</tr>
+
+<tr>
+<td class="org-left">large</td>
+<td class="org-right">1,000,000</td>
+<td class="org-right">39M</td>
+<td class="org-right">2254 ms</td>
+<td class="org-right">23570 ms</td>
+<td class="org-right">272M</td>
+</tr>
+
+<tr>
+<td class="org-left">huge</td>
+<td class="org-right">10,000,000</td>
+<td class="org-right">389M</td>
+<td class="org-right">16777 ms</td>
+<td class="org-right">219120 ms</td>
+<td class="org-right">1.3G</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+These results were produced with java : 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">$ java  -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/tiny.csv -o /Users/undx/tmp/challenge/tiny
+Structure integrity check performed<span style="color: #ff7800; font-weight: bold;"> in</span> 80 ms.
+File processed<span style="color: #ff7800; font-weight: bold;"> in</span> 169 ms.
+$ java  -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/small.csv -o /Users/undx/tmp/challenge/small
+Structure integrity check performed<span style="color: #ff7800; font-weight: bold;"> in</span> 111 ms.
+File processed<span style="color: #ff7800; font-weight: bold;"> in</span> 338 ms.
+$ java  -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/medium.csv -o /Users/undx/tmp/challenge/medium
+Structure integrity check performed<span style="color: #ff7800; font-weight: bold;"> in</span> 377 ms.
+File processed<span style="color: #ff7800; font-weight: bold;"> in</span> 3391 ms.
+$ java  -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/large.csv -o /Users/undx/tmp/challenge/large
+Structure integrity check performed<span style="color: #ff7800; font-weight: bold;"> in</span> 2254 ms.
+File processed<span style="color: #ff7800; font-weight: bold;"> in</span> 23570 ms.
+$ java  -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/huge.csv -o /Users/undx/tmp/challenge/huge
+Structure integrity check performed<span style="color: #ff7800; font-weight: bold;"> in</span> 16777 ms.
+File processed<span style="color: #ff7800; font-weight: bold;"> in</span> 219120 ms.
+</pre>
+</div>
+<p>
+More efficiently in shell (I used Zsh) : 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #ff7800; font-weight: bold;">for</span> j <span style="color: #707183;">(</span><span style="color: #409b1c;">"tiny"</span> <span style="color: #409b1c;">"small"</span> <span style="color: #409b1c;">"medium"</span> <span style="color: #409b1c;">"large"</span> <span style="color: #409b1c;">"huge"</span><span style="color: #707183;">)</span>; <span style="color: #ff7800; font-weight: bold;">do</span> 
+  <span style="color: #000000; background-color: #f8f8ff;">echo</span> $<span style="color: #671ebb;">j</span>; 
+  java -jar target/scala-2.11/challenge_2.11-1.0.0-one-jar.jar -f data/$<span style="color: #707183;">{</span><span style="color: #671ebb;">j</span><span style="color: #707183;">}</span>.csv -o /Users/undx/tmp/challenge/$<span style="color: #671ebb;">j</span>; 
+<span style="color: #ff7800; font-weight: bold;">done</span>
+</pre>
+</div>
+
+
+<p>
+In sbt, for testing purpose : 
+</p>
+<pre class="example">
+run -f data/tiny.csv   -o /Users/undx/tmp/challenge/tiny/
+...
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20">Final words</h2>
+<div class="outline-text-2" id="text-orgheadline20">
+<p>
+This was my first steps in Scala programming and I find this language very
+interesting and motivating. Sometimes the syntax is a little bit odd but you
+can do powerful things. I tried to follow the conventions and languages
+idioms, but <i>It's a long way to the top</i>&#x2026;
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
