@@ -243,7 +243,7 @@ To the best of your ability follow development best practices (docs, tests, etc)
 ** Project
 
 *** Tests   
-    As I followed the [[https://en.wikipedia.org/wiki/Test-driven_development][TDD]], I first wrote tests on my main components :
+    As I followed the [[https://en.wikipedia.org/wiki/Test-driven_development][TDD]], I first wrote tests for my main components :
     - /CLI/ tests are in [[file:../src/test/scala/net/undx/challenge/CLITest.scala][CLITest.scala]].
     - /Worker/ tests are in [[file:../src/test/scala/net/undx/challenge/WorkerTest.scala][WorkerTest.scala]].
 
