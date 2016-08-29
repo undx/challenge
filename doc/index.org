@@ -288,7 +288,7 @@ To the best of your ability follow development best practices (docs, tests, etc)
 
     See the [[file:README.org][README]] file for running the application.
     
-* Creating sample datasets <<datasets>>
+* Creating sample datasets
 
   I decided to create the following datasets from randomly generated data (see [[file:../project/Build.scala][Build.scala]]) :
   - =tiny.csv= holds 100 rows.
@@ -305,7 +305,7 @@ To the best of your ability follow development best practices (docs, tests, etc)
 
   : sbt run -f data/huge.csv -o /Users/undx/tmp/challenge 
 
-  (see [[file:README.org]] for usage)
+  (see the [[file:README.org][README]] file for usage)
 
 * Benchmarks on datasets
 
@@ -314,7 +314,6 @@ To the best of your ability follow development best practices (docs, tests, etc)
 
 | dataset |      #rows | Input size | integrity check | file processed | Output Generated |
 |---------+------------+------------+-----------------+----------------+------------------|
-|         |        <r> |        <r> |             <r> |            <r> |              <r> |
 | tiny    |        100 |       4,0K |           80 ms |         169 ms |             240K |
 | small   |      1,000 |        40K |          111 ms |         338 ms |             712K |
 | medium  |    100,000 |       3,9M |          377 ms |        3391 ms |              41M |
