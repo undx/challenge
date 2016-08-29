@@ -56,10 +56,8 @@ object Worker {
     Console.out.println(s"Structure integrity check performed in ${((System.currentTimeMillis) - start)} ms.")
     // iterator is consummed, create a new one on valid rows.
     var rows = new File(file).asCsvReader[InputRow](';', true).collect { case Success(s) => s }
-    // it specified, we filter the rows on the deparment.
+    // if specified, we filter the rows on the deparment.
     if (!departmentFilter.isEmpty) { rows = rows.filter(_.department == departmentFilter) }
-    // initially, we looped like this : `for (row <- rows; room <- rooms) { // iterate on row and rooms`
-    // but `code` would have been assigned up to 6 times...
     for (row <- rows) {
       val code = row.code match{
         case Some(c) => c.split("#.*#")
