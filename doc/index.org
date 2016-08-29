@@ -27,7 +27,7 @@ I've been asked to do an exercise / challenge for a job position. This documenta
   
 *** Input
 
- Input data sample
+**** Input data sample
     
  | department |       date | roomA | roomB | roomC | roomD | roomE | roomF | code          |
  |------------+------------+-------+-------+-------+-------+-------+-------+---------------|
@@ -37,7 +37,7 @@ I've been asked to do an exercise / challenge for a job position. This documenta
  | HR2        | 2009-01-20 |    19 |     4 |     3 |    20 |    40 |     7 | GEPUR##GBP    |
  | HR3        | 2009-01-21 |    21 |    89 |    56 |    12 |    70 |    91 |               |
 
-  Schema 
+****  Schema 
 
  | Column name | Type   | canBeNull? |
  |-------------+--------+------------|
@@ -108,7 +108,7 @@ I've been asked to do an exercise / challenge for a job position. This documenta
    - if the department match the filter or there's no department filter
     - we have to explode each room (/room<A..F>/) according to the room filter if defined
      - we will skip /empty/ =count= (room column value).
-      - into one line which has the format defined [[outputformat][below]].
+      - into one line which has the format defined below (output filename and content).
 
    In summary, we're making a pivot for room's columns (columns to rows).     
    
@@ -122,7 +122,7 @@ I've been asked to do an exercise / challenge for a job position. This documenta
    I decided that, if the input file structure is malformed(doesn't match schema), the process rejects the
    file and warns the user.
    
-*** Output filename and content <<outputformat>>
+*** Output filename and content
    - The output filename should be following this format =<department>-<room.capitalize>.csv=.
    - The format will be CSV with no headers, each field will be delimited by
      the =;= char and will follow the schema:
@@ -149,7 +149,7 @@ I've been asked to do an exercise / challenge for a job position. This documenta
   #+END_QUOTE
   We cannot know the size of the input source. It can contain 10 lines to 1 million lines or even more...\\
   To take that into account, I decided to make some tests on data samples of a small to huge volumetry.
-  See [[datasets][Creating sample datasets]] to see the size a data samples created.
+  See the /Creating sample datasets/ section to see the size a data samples created.
       
 * Challenge answer and implementation
 
