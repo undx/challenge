@@ -14,7 +14,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/solarized-light.min.css" />
 
 ** Description
-   This project is the answer of a challenge I've been asked for a job
+   This project is the answer to a challenge I've been asked for a job
    position. I decided to answer to it with the Scala language.    
 
    See the challenge description in the *[[file:index.org][documentation]]*.
