@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-08-29 lun. 16:25 -->
+<!-- 2016-08-29 Mon 19:07 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Documentation</title>
@@ -262,7 +262,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline20">Creating sample datasets </a></li>
+<li><a href="#orgheadline20">Creating sample datasets</a></li>
 <li><a href="#orgheadline21">Benchmarks on datasets</a></li>
 <li><a href="#orgheadline22">Final words</a></li>
 </ul>
@@ -791,7 +791,7 @@ In summary, we're making a pivot for room's columns (columns to rows).
 Thus, if the department is not filtered, if all rooms have a value and are not filtered, one
 line of input source will generate 6 lines of output (one per room).<br  />
 Each of theses lines, will be written in a distinct file name
-<code>&lt;department&gt;-Room&lt;room&gt;.csv</code> in append mode.<br  />
+<code>&lt;department&gt;-Room&lt;room&gt;.csv</code> in append mode. <br  />
 The <code>count</code> value will be the room value. We will repeat the <code>department</code>, add the
 <code>date</code> and eventually add the <code>ref</code> and <code>cur</code> fields if they're not null.
 </p>
@@ -893,7 +893,7 @@ In the challenge definition, we can read :
 <p>
 We cannot know the size of the input source. It can contain 10 lines to 1 million lines or even more&#x2026;<br  />
 To take that into account, I decided to make some tests on data samples of a small to huge volumetry.
-See the <i>Creating sample datasets</i> section to see the size a data samples created.
+See the <i>Creating sample datasets</i> section to see the size of data samples created.
 </p>
 </div>
 </div>
@@ -1061,7 +1061,7 @@ See the <a href="README.html">README</a> file for running the application.
 </div>
 
 <div id="outline-container-orgheadline20" class="outline-2">
-<h2 id="orgheadline20">Creating sample datasets <a id="orgtarget1"></a></h2>
+<h2 id="orgheadline20">Creating sample datasets</h2>
 <div class="outline-text-2" id="text-orgheadline20">
 <p>
 I decided to create the following datasets from randomly generated data (see <a href="../project/Build.scala">Build.scala</a>) :
@@ -1093,7 +1093,7 @@ sbt run -f data/huge.csv -o /Users/undx/tmp/challenge
 </pre>
 
 <p>
-(see <a href="README.html">README.html</a> for usage)
+(see the <a href="README.html">README</a> file for usage)
 </p>
 </div>
 </div>
@@ -1112,70 +1112,70 @@ Intel Core i5 2.5 GHz and 8GB memory running OS X 10.11.6. (Oracle Java JDK v8).
 <colgroup>
 <col  class="org-left" />
 
-<col  class="org-right" />
+<col  class="org-left" />
 
-<col  class="org-right" />
+<col  class="org-left" />
 
-<col  class="org-right" />
+<col  class="org-left" />
 
-<col  class="org-right" />
+<col  class="org-left" />
 
-<col  class="org-right" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
 <th scope="col" class="org-left">dataset</th>
-<th scope="col" class="org-right">#rows</th>
-<th scope="col" class="org-right">Input size</th>
-<th scope="col" class="org-right">integrity check</th>
-<th scope="col" class="org-right">file processed</th>
-<th scope="col" class="org-right">Output Generated</th>
+<th scope="col" class="org-left">#rows</th>
+<th scope="col" class="org-left">Input size</th>
+<th scope="col" class="org-left">integrity check</th>
+<th scope="col" class="org-left">file processed</th>
+<th scope="col" class="org-left">Output Generated</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="org-left">tiny</td>
-<td class="org-right">100</td>
-<td class="org-right">4,0K</td>
-<td class="org-right">80 ms</td>
-<td class="org-right">169 ms</td>
-<td class="org-right">240K</td>
+<td class="org-left">100</td>
+<td class="org-left">4,0K</td>
+<td class="org-left">80 ms</td>
+<td class="org-left">169 ms</td>
+<td class="org-left">240K</td>
 </tr>
 
 <tr>
 <td class="org-left">small</td>
-<td class="org-right">1,000</td>
-<td class="org-right">40K</td>
-<td class="org-right">111 ms</td>
-<td class="org-right">338 ms</td>
-<td class="org-right">712K</td>
+<td class="org-left">1,000</td>
+<td class="org-left">40K</td>
+<td class="org-left">111 ms</td>
+<td class="org-left">338 ms</td>
+<td class="org-left">712K</td>
 </tr>
 
 <tr>
 <td class="org-left">medium</td>
-<td class="org-right">100,000</td>
-<td class="org-right">3,9M</td>
-<td class="org-right">377 ms</td>
-<td class="org-right">3391 ms</td>
-<td class="org-right">41M</td>
+<td class="org-left">100,000</td>
+<td class="org-left">3,9M</td>
+<td class="org-left">377 ms</td>
+<td class="org-left">3391 ms</td>
+<td class="org-left">41M</td>
 </tr>
 
 <tr>
 <td class="org-left">large</td>
-<td class="org-right">1,000,000</td>
-<td class="org-right">39M</td>
-<td class="org-right">2254 ms</td>
-<td class="org-right">23570 ms</td>
-<td class="org-right">272M</td>
+<td class="org-left">1,000,000</td>
+<td class="org-left">39M</td>
+<td class="org-left">2254 ms</td>
+<td class="org-left">23570 ms</td>
+<td class="org-left">272M</td>
 </tr>
 
 <tr>
 <td class="org-left">huge</td>
-<td class="org-right">10,000,000</td>
-<td class="org-right">389M</td>
-<td class="org-right">16777 ms</td>
-<td class="org-right">219120 ms</td>
-<td class="org-right">1.3G</td>
+<td class="org-left">10,000,000</td>
+<td class="org-left">389M</td>
+<td class="org-left">16777 ms</td>
+<td class="org-left">219120 ms</td>
+<td class="org-left">1.3G</td>
 </tr>
 </tbody>
 </table>

@@ -1,3 +1,4 @@
+
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t
 #+OPTIONS: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
 #+OPTIONS: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t tasks:t
@@ -162,7 +163,7 @@ To the best of your ability follow development best practices (docs, tests, etc)
    Thus, if the department is not filtered, if all rooms have a value and are not filtered, one
    line of input source will generate 6 lines of output (one per room).\\
    Each of theses lines, will be written in a distinct file name
-   =<department>-Room<room>.csv= in append mode.\\
+   =<department>-Room<room>.csv= in append mode. \\ 
    The =count= value will be the room value. We will repeat the =department=, add the
    =date= and eventually add the =ref= and =cur= fields if they're not null.
     
@@ -196,7 +197,7 @@ To the best of your ability follow development best practices (docs, tests, etc)
   #+END_QUOTE
   We cannot know the size of the input source. It can contain 10 lines to 1 million lines or even more...\\
   To take that into account, I decided to make some tests on data samples of a small to huge volumetry.
-  See the /Creating sample datasets/ section to see the size a data samples created.
+  See the /Creating sample datasets/ section to view the size of data samples created.
       
 * Challenge answer and implementation
 
