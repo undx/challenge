@@ -17,7 +17,7 @@
    This project is the answer of a challenge I've been asked for a job
    position. I decided to answer to it with the Scala language.    
 
-   See the challenge description in the *[[file:index.org][documentation]]*.
+   See the challenge description in the *[[file:doc/index.org][documentation]]*.
   
 ** Getting started
    - Make sure you have the following dependencies installed :
